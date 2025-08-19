@@ -1,7 +1,7 @@
 import React from "react"
 import IngredientsList from "./IngredientsList"
 import ClaudeRecipe from "./ClaudeRecipe"
-import { getRecipeFromGemini } from "../ai.js"
+import { getRecipeFromGemini } from ".../ai.js"
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState(
@@ -41,4 +41,5 @@ export default function Main() {
             {recipe && <ClaudeRecipe recipe={recipe} />}
         </main>
     )
+
 }
