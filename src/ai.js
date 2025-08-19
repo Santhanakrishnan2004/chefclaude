@@ -3,7 +3,7 @@ You are an assistant that receives a list of ingredients that a user has and sug
 `
 
 // Replace with your actual Gemini API key (best: keep in .env)
-const API_KEY = process.env.GAPI
+const API_KEY = import.meta.env.VITE_GAPI
 
 export async function getRecipeFromGemini(ingredientsArr) {
   const ingredientsString = ingredientsArr.join(", ")
@@ -44,3 +44,4 @@ export async function getRecipeFromGemini(ingredientsArr) {
     return "⚠️ Error fetching recipe."
   }
 }
+
