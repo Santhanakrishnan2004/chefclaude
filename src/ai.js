@@ -6,9 +6,7 @@ export async function getRecipeFromGemini(ingredientsArr) {
   // Load API key fresh inside the function
   const API_KEY = import.meta.env.VITE_GAPI;
 
-  // Debugging env
-  console.log("🛠 API key exists?", !!API_KEY);
-  console.log("🔑 API_KEY value:", API_KEY ? API_KEY.slice(0, 8) + "..." : "undefined");
+
 
   if (!API_KEY) {
     console.error("❌ API key missing! Check .env.local or Vercel Environment Variables.");
@@ -49,10 +47,8 @@ export async function getRecipeFromGemini(ingredientsArr) {
     if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
       console.log("✅ Recipe generated successfully!");
       return data.candidates[0].content.parts[0].text;
-    } else if (data.error) {
-      console.error("❌ Gemini API Error:", data.error.message);
-      return `⚠️ Gemini API Error: ${data.error.message}`;
-    } else {
+    } 
+    else {
       console.warn("⚠️ No recipe text found in response.");
       return "⚠️ No recipe generated.";
     }
