@@ -18,7 +18,7 @@ export async function getRecipeFromGemini(ingredientsArr) {
 
   try {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-    console.log("🌍 Fetching from URL:", url);
+ 
 
     const response = await fetch(url, {
       method: "POST",
@@ -41,19 +41,19 @@ export async function getRecipeFromGemini(ingredientsArr) {
     console.log("📡 Response status:", response.status, response.statusText);
 
     const data = await response.json();
-    console.log("📦 Gemini raw response:", data);
+   
 
     // Extract recipe text
     if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
-      console.log("✅ Recipe generated successfully!");
+  
       return data.candidates[0].content.parts[0].text;
     } 
     else {
-      console.warn("⚠️ No recipe text found in response.");
+
       return "⚠️ No recipe generated.";
     }
   } catch (err) {
-    console.error("🚨 Fetch failed:", err);
+
     return "⚠️ Error fetching recipe.";
   }
 }
